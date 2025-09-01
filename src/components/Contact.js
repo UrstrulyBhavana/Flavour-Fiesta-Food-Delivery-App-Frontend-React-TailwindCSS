@@ -10,8 +10,9 @@ const Contact = () => {
       text: "Thank you for contacting us. We will get back to you soon.",
       icon: "success",
       confirmButtonColor: "#f59e0b",
+      scrollbarPadding: false,   
+      heightAuto: false          
     });
-
     e.target.reset();
   };
 
@@ -22,7 +23,6 @@ const Contact = () => {
         className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-amber-200/60 to-transparent"
       />
 
-      {/* Hero */}
       <section className="relative mx-auto max-w-6xl px-4 pt-10">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-200 p-8 md:p-10 shadow-lg">
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
@@ -35,7 +35,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Form */}
       <section className="mx-auto max-w-3xl px-4 mt-10">
         <form
           onSubmit={handleSubmit}
@@ -88,7 +87,6 @@ const Contact = () => {
         </form>
       </section>
 
-      {/* Contact cards */}
       <section className="mx-auto max-w-6xl px-4 mt-6 pb-14">
         <div className="grid md:grid-cols-3 gap-4">
           {[

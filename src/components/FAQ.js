@@ -160,9 +160,16 @@ const FAQ = () => {
                       </span>
                       {item.q}
                     </span>
-                    <span className="ml-3 select-none inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 text-slate-500 transition group-open:rotate-45 group-open:border-amber-500 group-open:text-amber-600">
-                      +
+
+                    <span
+                      className="ml-3 grid place-items-center w-6 h-6 rounded-full border border-slate-300 text-slate-500 transition group-open:rotate-45 group-open:border-amber-500 group-open:text-amber-600 shrink-0"
+                      aria-hidden="true"
+                    >
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      </svg>
                     </span>
+
                   </summary>
                   <p className="mt-3 text-sm leading-6 text-slate-600">{item.a}</p>
                 </details>
@@ -189,9 +196,15 @@ const FAQ = () => {
                 >
                   <summary className="cursor-pointer list-none font-semibold flex items-center justify-between text-slate-900 focus-visible:outline-none">
                     {it.q}
-                    <span className="ml-3 select-none inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 text-slate-500 transition group-open:rotate-45 group-open:border-amber-500 group-open:text-amber-600">
-                      +
+                    <span
+                      className="ml-3 grid place-items-center w-6 h-6 rounded-full border border-slate-300 text-slate-500 transition group-open:rotate-45 group-open:border-amber-500 group-open:text-amber-600 shrink-0"
+                      aria-hidden="true"
+                    >
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      </svg>
                     </span>
+
                   </summary>
                   <p className="mt-3 text-sm leading-6 text-slate-600">{it.a}</p>
                 </details>
