@@ -4,8 +4,10 @@
 
 @layer base {
   html, body, #root { width: 100%; overflow-x: hidden; }
-  html { overflow-y: scroll; }        
   *, *::before, *::after { box-sizing: border-box; }
   img, video { max-width: 100%; height: auto; display: block; }
 }
 
+html { scrollbar-gutter: stable; }
+
+body { overflow-y: auto; } 
