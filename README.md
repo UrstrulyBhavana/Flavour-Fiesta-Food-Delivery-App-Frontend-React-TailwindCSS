@@ -196,8 +196,9 @@ npm run dev      # -> http://localhost:1234
 
 # 5) Build (optional)
 npm run build
+
+Note: The app auto-selects the local proxy when running on localhost (IS_LOCAL === true); otherwise it uses the hosted Render proxy.
 ```
-Your code auto-selects local proxy when running on localhost (IS_LOCAL), otherwise uses the hosted proxy. 
 ---
 
 ## 🚀 Usage
