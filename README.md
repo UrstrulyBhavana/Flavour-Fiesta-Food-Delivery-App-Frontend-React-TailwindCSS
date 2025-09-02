@@ -1,4 +1,4 @@
-# 🛒 Flavour Fiesta – React Food Ordering App
+# 🛒 Flavour Fiesta — React 19 + Redux Toolkit + Tailwind | Swiggy Proxy (Render) + Mock Fallback
 
 <p align="center">
   <img src="https://img.shields.io/badge/Made%20with-%F0%9F%92%96%20by%20Bhavana-brightgreen?style=for-the-badge" alt="Made with Love by Bhavana" />
@@ -32,7 +32,7 @@
 
 Click to watch the video walkthrough:
 
-[![Flavour Fiesta Demo](https://img.youtube.com/vi/zUwNgNrAAas/0.jpg)](https://youtu.be/zUwNgNrAAas)
+[![Flavour Fiesta Demo](https://img.youtube.com/vi/r9-QQofIoWU/0.jpg)](https://youtu.be/r9-QQofIoWU)
 
 ---
 
@@ -162,30 +162,42 @@ src/
 
 - Proxy hosted on **Render** to bypass Swiggy CORS restrictions.  
 - Local dev can use `http://localhost:5174/api`.  
-- API URLs & constants are defined in `utils/constants.js`.  
+- API URLs & constants are defined in `utils/constants.js`.
+
+Endpoints:
+- GET /api/restaurants  → forwards Swiggy list API
+- GET /api/menu?resId=  → forwards Swiggy menu API
+- GET /healthz          → simple health probe
+
+Implementation notes:
+- Sets a realistic User-Agent header for reliable responses.
+- Uses node-fetch v2; CORS handled server-side.
+- Hosted on Render free tier → may cold-start after inactivity.
 
 ---
 
 ## ⚙️ Installation
 
-> Requires **Node.js 18+**
+> Requires Node.js 18+
 
 ```bash
 # 1) Clone
-git clone https://github.com/UrstrulyBhavana/Food-Ordering-App.git
-cd Food-Ordering-App
+git clone https://github.com/UrstrulyBhavana/Flavour-Fiesta-Food-Delivery-App-Frontend-React-TailwindCSS.git
+cd Flavour-Fiesta-Food-Delivery-App-Frontend-React-TailwindCSS
 
 # 2) Install dependencies
 npm install
 
-# 3) Start dev server
-npm run dev
-# or
-npm start
+# 3) Start the proxy (terminal 1)
+npm run proxy    # -> http://localhost:5174
 
-# 4) Build for production
+# 4) Start the client (terminal 2)
+npm run dev      # -> http://localhost:1234
+
+# 5) Build (optional)
 npm run build
 ```
+Your code auto-selects local proxy when running on localhost (IS_LOCAL), otherwise uses the hosted proxy. 
 ---
 
 ## 🚀 Usage
@@ -217,7 +229,7 @@ export const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
 
 export const LOGO_URL =
-  "https://static.vecteezy.com/.../chef-girl-smiling.jpg";
+  "https://static.vecteezy.com/system/resources/previews/001/936/506/non_2x/chef-girl-smiling-happy-and-cooking-with-love-in-her-kitchen-vector.jpg";
 
 export const IS_LOCAL =
   typeof window !== "undefined" &&
@@ -241,18 +253,16 @@ export const Menu_API = IS_LOCAL
 
 ## 🗂 State & Data Flow
 
-- **Redux Toolkit** manages global state.
-  
-- **Slices**:  
-  - `cartSlice.js` → manages cart items  
-  - `userSlice.js` → handles user authentication & preferences
-    
-- **Context API** for app-wide settings (light usage).
-  
-- **Custom Hooks**:  
-  - `useRestaurantMenu` → fetches & caches menu data  
-  - `useOnlineStatus` → tracks connectivity  
-  - `useBodyMockToggle` → toggles between API & mock data  
+- Redux Toolkit
+  - cartSlice.js → manages cart items (add, remove by index, clear)
+
+- Context API
+  - MockContext → global toggle for Mock mode
+  - UserContext → placeholder for future auth/profile
+
+- Custom Hooks
+  - useRestaurantMenu → fetches menu; returns [data, source] and auto-fallback
+  - useOnlineStatus → tracks connectivity (online/offline)
 
 ---
 
@@ -316,7 +326,7 @@ export const Menu_API = IS_LOCAL
 
 5. FAQ – category accordions + inline search.
 
-6. Contact – SweetAlert2 toast on submit.
+6. Contact – Contact form triggers a SweetAlert2 success popup.
 
 7. Badges – always indicate API / Mock / Fallback.
 
