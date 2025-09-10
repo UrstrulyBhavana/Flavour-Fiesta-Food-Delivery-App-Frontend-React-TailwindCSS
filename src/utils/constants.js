@@ -7,14 +7,24 @@ export const LOGO_URL =
 export const IS_LOCAL =
   typeof window !== "undefined" &&
   (window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1");
+  window.location.hostname === "127.0.0.1");
 
 export const PROXY_BASE = "https://flavorfiesta-proxy.onrender.com";
 
-export const LIST_API = IS_LOCAL
-  ? "http://localhost:5174/api/restaurants"
-  : `${PROXY_BASE}/api/restaurants`;
+// export const LIST_API = IS_LOCAL
+//   ? "http://localhost:5174/api/restaurants"
+//   : `${PROXY_BASE}/api/restaurants`;
 
-export const Menu_API = IS_LOCAL
-  ? "http://localhost:5174/api/menu?resId="
-  : `${PROXY_BASE}/api/menu?resId=`;
+// export const Menu_API = IS_LOCAL
+//   ? "http://localhost:5174/api/menu?resId="
+//   : `${PROXY_BASE}/api/menu?resId=`;
+
+// // Per-restaurant mock JSONs served by the proxy
+// export const PROXY_MOCK_BASE = IS_LOCAL
+//   ? "http://localhost:5174/mock/menus/"
+//   : `${PROXY_BASE}/mock/menus/`;
+
+
+export const LIST_API = `${PROXY_BASE}/api/restaurants`;
+export const Menu_API = `${PROXY_BASE}/api/menu?resId=`;
+export const PROXY_MOCK_BASE = `${PROXY_BASE}/mock/menus/`;
