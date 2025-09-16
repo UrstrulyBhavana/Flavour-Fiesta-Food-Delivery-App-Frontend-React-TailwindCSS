@@ -32,7 +32,7 @@
 
 Click to watch the video walkthrough:
 
-[![Flavour Fiesta Demo](https://img.youtube.com/vi/r9-QQofIoWU/0.jpg)](https://youtu.be/r9-QQofIoWU)
+[![Flavour Fiesta Demo](https://img.youtube.com/vi/r9-QQofIoWU/maxresdefault.jpg)](https://youtu.be/r9-QQofIoWU)
 
 ---
 
