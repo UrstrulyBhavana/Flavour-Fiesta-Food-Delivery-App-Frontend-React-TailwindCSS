@@ -8,7 +8,7 @@
     "dev:api": "nodemon server.js",
     "start": "parcel index.html",
     "proxy": "node server.js",
-    "build": "parcel build index.html --dist-dir dist --public-url ./",
+    "build": "parcel build index.html --dist-dir dist --public-url /",
     "postbuild": "copy /Y preview.png dist\\preview.png && copy /Y public\\_redirects dist\\_redirects",
     "test": "jest",
     "watch-test": "jest --watch"
